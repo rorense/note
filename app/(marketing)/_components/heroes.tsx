@@ -1,8 +1,7 @@
 import Image from "next/image";
 
 const Heroes = () => {
-  return <div></div>;
+  return <div>Heroes</div>;
 };
 
 export default Heroes;
-<div></div>;
