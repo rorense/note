@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// * Varying image selector depending on dark/light mode
 const Heroes = () => {
   return (
     <div className="flex flex-col items-center justify-center max-w-5xl">

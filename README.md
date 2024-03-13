@@ -39,4 +39,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - Next JS
 - Tailwind CSS
--
+- Convex (Back-end database)
+- Clerk (authentication)
