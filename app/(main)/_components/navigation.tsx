@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import UserItem from "./user-item";
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 const Navigation = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -15,6 +17,8 @@ const Navigation = () => {
   const navbarRef = useRef<ElementRef<"div">>(null);
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+  const documents = useQuery(api.documents.get);
 
   // * Detect screen size for sidebar visibility
   useEffect(() => {
@@ -119,7 +123,9 @@ const Navigation = () => {
           <UserItem />
         </div>
         <div className="mt-4">
-          <p>Documents</p>
+          {documents?.map((documents) => (
+            <p key={documents._id}>{documents.title}</p>
+          ))}
         </div>
         <div
           onMouseDown={handleMouseDown}

@@ -41,3 +41,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Tailwind CSS
 - Convex (Back-end database)
 - Clerk (authentication)
+- Sonner (toast)
