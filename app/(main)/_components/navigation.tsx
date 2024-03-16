@@ -70,7 +70,7 @@ const Navigation = () => {
     document.removeEventListener("mouseup", handleMouseUp);
   };
 
-  // * To reset the width of the sidebar to default
+  // * To reset the width of the sidebar to default.
   const resetWidth = () => {
     if (sidebarRef.current && navbarRef.current) {
       setIsCollapsed(false);
