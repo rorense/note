@@ -23,6 +23,7 @@ export const DocumentList = ({
   const router = useRouter();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
+  // * Action to expand the sidebar documents
   const onExpand = (documentId: string) => {
     setExpanded((prevExpanded) => ({
       ...prevExpanded,
@@ -56,7 +57,7 @@ export const DocumentList = ({
     <>
       <p
         style={{
-          paddingLeft: level ? `${level * 12 + 25}px` : undefined,
+          paddingLeft: level ? `${level * 12 + 25}px` : "10px",
         }}
         className={cn(
           "hidden text-sm font-medium text-muted-foreground/80",
