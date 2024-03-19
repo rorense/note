@@ -18,8 +18,13 @@ const Navbar = ({ isCollapsed, onResetWidth }: NavbarProps) => {
     documentId: params.documentId as Id<"documents">,
   });
 
+  // * When document is loading
   if (document === undefined) {
-    return <p>Loading...</p>;
+    return (
+      <nav className="bg-background dark:bg-[#1F1F1F] px-3 py-2 w-full flex items-center">
+        <Title.Skeleton />
+      </nav>
+    );
   }
 
   if (document === null) return null;
