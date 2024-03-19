@@ -6,7 +6,7 @@ import { useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 import { api } from "@/convex/_generated/api";
-import { useSearch } from "@/app/hooks/use-hooks";
+import { useSearch } from "@/app/hooks/use-search";
 import {
   CommandDialog,
   CommandEmpty,
