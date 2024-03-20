@@ -17,10 +17,12 @@ interface ToolbarProps {
 const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   const inputRef = useRef<ElementRef<"textarea">>(null);
   const update = useMutation(api.documents.update);
+  const removeIcon = useMutation(api.documents.removeIcon);
 
   const [isEditing, setIsEditing] = useState(false);
   const [value, setValue] = useState(initialData.title);
 
+  // * Enable Editing of the title
   const enableInput = () => {
     if (preview) return;
 
@@ -31,8 +33,10 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
     }, 0);
   };
 
+  // * Disable editing of the title
   const disableInput = () => setIsEditing(false);
 
+  // * When editing title, update title
   const onInput = (value: string) => {
     setValue(value);
     update({
@@ -41,6 +45,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
     });
   };
 
+  // * Disable input when 'enter' key is pressed
   const onKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -48,18 +53,33 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
     }
   };
 
+  // * On Icon select, update the database with the icon
+  const onIconSelect = (icon: string) => {
+    update({
+      id: initialData._id,
+      icon,
+    });
+  };
+
+  // * When 'X' is pressed, remove the icon from the database
+  const onRemoveIcon = () => {
+    removeIcon({
+      id: initialData._id,
+    });
+  };
+
   return (
     <div className="pl-[54px] group relative">
       {!!initialData.icon && !preview && (
         <div className="flex items-center gap-x-2 group/icon pt-6">
-          <IconPicker onChange={() => {}}>
+          <IconPicker onChange={onIconSelect}>
             <p className="text-6xl hover:opacity-75 transition">
               {initialData.icon}
             </p>
           </IconPicker>
           <Button
-            onClick={() => {}}
-            className="rounded-full opacity-0 group/hover icon:opacity-100 transition text-muted-foreground text-xs"
+            onClick={onRemoveIcon}
+            className="rounded-full opacity-0 group-hover/icon:opacity-100 transition text-muted-foreground text-xs"
             variant="outline"
             size="icon"
           >
@@ -73,7 +93,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
       )}
       <div className="opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4">
         {!initialData.icon && !preview && (
-          <IconPicker asChild onChange={() => {}}>
+          <IconPicker asChild onChange={onIconSelect}>
             <Button
               className="text-muted-foreground text-xs"
               variant="outline"
