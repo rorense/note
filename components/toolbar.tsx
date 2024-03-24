@@ -61,7 +61,7 @@ const Toolbar = ({ initialData, preview }: ToolbarProps) => {
     });
   };
 
-  // * When 'X' is pressed, remove the icon from the database
+  // * When 'X' is pressed, remove the icon from the database.
   const onRemoveIcon = () => {
     removeIcon({
       id: initialData._id,
