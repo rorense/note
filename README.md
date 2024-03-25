@@ -44,3 +44,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Sonner (toast)
 - Zustand
 - Emoji Picker React (emoji)
+- Edge Store (file upload)
