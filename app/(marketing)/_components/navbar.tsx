@@ -32,14 +32,14 @@ const Navbar = () => {
               </Button>
             </SignInButton>
             <SignUpButton mode="modal">
-              <Button size="sm">Get Jotion for Free</Button>
+              <Button size="sm">Get Scriibe for Free</Button>
             </SignUpButton>
           </>
         )}
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Enter Jotion</Link>
+              <Link href="/documents">Enter Scriibe</Link>
             </Button>
             <UserButton afterSignOutUrl="/" />
           </>

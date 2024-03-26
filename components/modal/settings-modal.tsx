@@ -18,7 +18,7 @@ const SettingsModal = () => {
           <div className="flex flex-col gap-y-1">
             <Label>Appearance</Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Customise Jotion on your device
+              Customise Scriibe on your device
             </span>
           </div>
           <ModeToggle />
